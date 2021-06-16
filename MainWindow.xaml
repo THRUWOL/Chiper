@@ -7,32 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="White">
     <Grid x:Name="Main" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="800">
-        <Grid x:Name="Upper" Background="#FFD6D6D6">
-            <TextBlock x:Name="TextBlock_ProgrammName" Margin="377,0" TextWrapping="Wrap" Text="шифер" VerticalAlignment="Top" Height="20" FontSize="14"/>
+        <Grid x:Name="Upper" Background="#FF453563">
+            <TextBlock x:Name="TextBlock_ProgrammName" Margin="377,0" TextWrapping="Wrap" Text="шифер" VerticalAlignment="Top" Height="20" FontSize="14" Foreground="#FFC0E5FF"/>
             <Button x:Name="Button_Close" Content="⚫" HorizontalAlignment="Left" Height="20" Margin="780,0,0,0" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FFFF7373" Click="Button_Close_Click"/>
             <Button x:Name="Button_MInimize" Content="⚫" HorizontalAlignment="Left" Height="20" Margin="760,0,0,0" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FF7DBBFF" Click="Button_MInimize_Click"/>
             <Button x:Name="Button_ProgrammInfo" Content="⚫" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FFFFDC00" Click="Button_MInimize_Click"/>
         </Grid>
-        <Grid x:Name="Chipers" HorizontalAlignment="Left" Height="50" Margin="0,400,0,-430" VerticalAlignment="Top" Width="800" Background="#FF969696">
-            <Button Content="1" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="2" HorizontalAlignment="Left" Margin="102,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="3" HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="4" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="5" HorizontalAlignment="Left" Margin="327,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="6" HorizontalAlignment="Left" Margin="402,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="7" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="8" HorizontalAlignment="Left" Margin="552,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="9" HorizontalAlignment="Left" Margin="627,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
-            <Button Content="10" HorizontalAlignment="Left" Margin="702,10,0,0" VerticalAlignment="Top" Width="70" Height="30"/>
+        <Grid x:Name="Chipers" HorizontalAlignment="Left" Height="50" Margin="0,400,0,-430" VerticalAlignment="Top" Width="800" Background="#FF453563">
+            <Button Content="Base64" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="Button_Click" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="ROT" HorizontalAlignment="Left" Margin="102,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="Button_Click_1" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="3" HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="4" HorizontalAlignment="Left" Margin="252,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="5" HorizontalAlignment="Left" Margin="327,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="6" HorizontalAlignment="Left" Margin="402,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="7" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="8" HorizontalAlignment="Left" Margin="552,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="9" HorizontalAlignment="Left" Margin="627,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
+            <Button Content="10" HorizontalAlignment="Left" Margin="702,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>
 
         </Grid>
-        <Grid x:Name="Settings" HorizontalAlignment="Left" Height="139" Margin="0,261,0,-380" VerticalAlignment="Top" Width="800" Background="#FFBABABA">
-            <StackPanel x:Name="Panel_Settings" HorizontalAlignment="Left" Height="139" VerticalAlignment="Top" Width="800"/>
+        <Grid x:Name="Settings" HorizontalAlignment="Left" Height="139" Margin="0,261,0,-380" VerticalAlignment="Top" Width="800" Background="#FFA5C0FD">
+            <Grid x:Name="Base64" Margin="22,21,10,15">
+                <RadioButton x:Name="Base64_Code" Content="Шифрование" HorizontalAlignment="Left" Margin="21,33,0,0" VerticalAlignment="Top" Foreground="#FF453563" FontWeight="Bold"/>
+                <RadioButton x:Name="Base64_Decode" Content="Дешифрование" HorizontalAlignment="Left" Margin="21,67,0,0" VerticalAlignment="Top" Foreground="#FF453563" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Настройки" VerticalAlignment="Top" Foreground="#FF453563" FontWeight="Bold"/>
+                <Button Content="О методе" HorizontalAlignment="Left" Margin="687,84,0,0" VerticalAlignment="Top" Width="81" Background="#FFB400FF" BorderBrush="{x:Null}" Foreground="White" Height="19"/>
+            </Grid>
         </Grid>
-        <Grid x:Name="Input_Output" HorizontalAlignment="Left" Height="241" Margin="0,20,0,-241" VerticalAlignment="Top" Width="800" Background="#FFEDEDED">
-            <TextBox x:Name="TextBox_Input" HorizontalAlignment="Left" Height="201" Margin="21,20,0,0" TextWrapping="Wrap" Text="Ввод..." VerticalAlignment="Top" Width="339"/>
-            <TextBox x:Name="TextBox_Output" HorizontalAlignment="Left" Height="201" Margin="442,20,0,0" TextWrapping="Wrap" Text="Вывод..." VerticalAlignment="Top" Width="338" IsEnabled="False"/>
-            <Button x:Name="Button_Start" Content="▶" HorizontalAlignment="Left" Margin="365,109,0,0" VerticalAlignment="Top" Width="72" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Foreground="#FF00DF4B"/>
+        <Grid x:Name="Input_Output" HorizontalAlignment="Left" Height="241" Margin="0,20,0,-241" VerticalAlignment="Top" Width="800" Background="#FFC0D3FF">
+            <TextBox x:Name="TextBox_Input" HorizontalAlignment="Left" Height="182" Margin="21,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" BorderBrush="#FF4600FF"/>
+            <TextBox x:Name="TextBox_Output" HorizontalAlignment="Left" Height="182" Margin="442,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" BorderBrush="#FF4600FF"/>
+            <Button x:Name="Button_Start" Content="▶" HorizontalAlignment="Left" Margin="365,109,0,0" VerticalAlignment="Top" Width="72" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Foreground="#FFC700FF" Click="Button_Start_Click"/>
         </Grid>
     </Grid>
 </Window>
