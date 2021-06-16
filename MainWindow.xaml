@@ -1,0 +1,24 @@
+﻿<Window x:Class="Cipher_Шифер_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cipher_Шифер_"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="White">
+    <Grid x:Name="Main" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="800">
+        <Grid x:Name="Upper" Background="#FFD6D6D6">
+            <TextBlock x:Name="TextBlock_ProgrammName" Margin="377,0" TextWrapping="Wrap" Text="шифер" VerticalAlignment="Top" Height="20" FontSize="14"/>
+            <Button x:Name="Button_Close" Content="⚫" HorizontalAlignment="Left" Height="20" Margin="780,0,0,0" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FFFF7373" Click="Button_Close_Click"/>
+            <Button x:Name="Button_MInimize" Content="⚫" HorizontalAlignment="Left" Height="20" Margin="760,0,0,0" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FF7DBBFF" Click="Button_MInimize_Click"/>
+            <Button x:Name="Button_ProgrammInfo" Content="⚫" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FFFFDC00" Click="Button_MInimize_Click"/>
+        </Grid>
+        <Grid x:Name="Chipers" HorizontalAlignment="Left" Height="73" Margin="0,377,0,-430" VerticalAlignment="Top" Width="800" Background="#FF969696"/>
+        <Grid x:Name="Settings" HorizontalAlignment="Left" Height="116" Margin="0,261,0,-357" VerticalAlignment="Top" Width="800" Background="#FFBABABA"/>
+        <Grid x:Name="Input_Output" HorizontalAlignment="Left" Height="241" Margin="0,20,0,-241" VerticalAlignment="Top" Width="800" Background="#FFEDEDED">
+            <TextBox x:Name="TextBox_Input" HorizontalAlignment="Left" Height="201" Margin="21,20,0,0" TextWrapping="Wrap" Text="Ввод..." VerticalAlignment="Top" Width="339"/>
+            <TextBox x:Name="TextBox_Output" HorizontalAlignment="Left" Height="201" Margin="442,20,0,0" TextWrapping="Wrap" Text="Вывод..." VerticalAlignment="Top" Width="338" IsEnabled="False"/>
+            <Button x:Name="Button_Start" Content="▶" HorizontalAlignment="Left" Margin="365,109,0,0" VerticalAlignment="Top" Width="72" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Foreground="#FF00DF4B"/>
+        </Grid>
+    </Grid>
+</Window>
