@@ -6,11 +6,124 @@
         xmlns:local="clr-namespace:Cipher_Шифер_"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="White">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundedButtonRed" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true"/>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FFFA4848"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFFA4848"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FFFF0000"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFFF0000"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RoundedButtonBlue" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FF3D96F7"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF3D96F7"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FF007AFF"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF007AFF"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
     <Grid x:Name="Main" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="800">
         <Grid x:Name="Upper" Background="#FF453563">
             <TextBlock x:Name="TextBlock_ProgrammName" Margin="377,0" TextWrapping="Wrap" Text="шифер" VerticalAlignment="Top" Height="20" FontSize="14" Foreground="#FFC0E5FF"/>
-            <Button x:Name="Button_Close" Content="⚫" HorizontalAlignment="Left" Height="20" Margin="780,0,0,0" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FFFF7373" Click="Button_Close_Click"/>
-            <Button x:Name="Button_MInimize" Content="⚫" HorizontalAlignment="Left" Height="20" Margin="760,0,0,0" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FF7DBBFF" Click="Button_MInimize_Click"/>
+            <Button x:Name="Button_Close" 
+                    Content=" " HorizontalAlignment="Left" 
+                    Height="13" Margin="783,4,0,0" 
+                    VerticalAlignment="Top" Width="12" 
+                    Foreground="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    FontSize="10" 
+                    Background="#FFFF7373" 
+                    Click="Button_Close_Click" 
+                    Style="{DynamicResource RoundedButtonRed}" />
+            <Button x:Name="Button_MInimize" 
+                    Content=" " 
+                    HorizontalAlignment="Left" 
+                    Height="13" Margin="766,4,0,0" 
+                    VerticalAlignment="Top" Width="12" 
+                    Foreground="{x:Null}" 
+                    BorderBrush="{x:Null}" 
+                    FontSize="10" 
+                    Background="#FF7DBBFF" 
+                    Click="Button_MInimize_Click" Style="{DynamicResource RoundedButtonBlue}">
+
+            </Button>
             <Button x:Name="Button_Info" Content="⚫" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" FontSize="10" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF4FF00" Height="20" Click="Button_Info_Click"/>
         </Grid>
         <Grid x:Name="Chipers" HorizontalAlignment="Left" Height="50" Margin="0,400,0,-430" VerticalAlignment="Top" Width="800" Background="#FF453563">
