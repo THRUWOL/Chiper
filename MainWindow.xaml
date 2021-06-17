@@ -11,7 +11,7 @@
             <TextBlock x:Name="TextBlock_ProgrammName" Margin="377,0" TextWrapping="Wrap" Text="шифер" VerticalAlignment="Top" Height="20" FontSize="14" Foreground="#FFC0E5FF"/>
             <Button x:Name="Button_Close" Content="⚫" HorizontalAlignment="Left" Height="20" Margin="780,0,0,0" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FFFF7373" Click="Button_Close_Click"/>
             <Button x:Name="Button_MInimize" Content="⚫" HorizontalAlignment="Left" Height="20" Margin="760,0,0,0" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FF7DBBFF" Click="Button_MInimize_Click"/>
-            <Button x:Name="Button_ProgrammInfo" Content="⚫" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="20" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="10" Foreground="#FFFFDC00" Click="Button_MInimize_Click" />
+            <Button x:Name="Button_Info" Content="⚫" HorizontalAlignment="Left" VerticalAlignment="Top" Width="21" FontSize="10" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFF4FF00" Height="20" Click="Button_Info_Click"/>
         </Grid>
         <Grid x:Name="Chipers" HorizontalAlignment="Left" Height="50" Margin="0,400,0,-430" VerticalAlignment="Top" Width="800" Background="#FF453563">
             <Button Content="Base64" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top" Width="70" Height="30" Click="Button_Click" Background="{x:Null}" BorderBrush="#FFA5C0FD" Foreground="#FF9DB3FF"/>

@@ -1,25 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-/*
-    Прощу прощения у каждого (даже у себя), кто увидит данный код...
-    Стыдно ли мне? Нет...
-    Мне Ю... ПОХ*Ю
-    😎🤙
- */
-
 
 namespace Cipher_Шифер_
 {
@@ -28,27 +8,30 @@ namespace Cipher_Шифер_
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow() { 
+        public MainWindow() 
+        { 
             InitializeComponent();
         }
-
-        // Перемещение окна с помощью мышки
+        #region SMTH Buttons
         private void Window_MouseLeftButtonDown(object sender, RoutedEventArgs e) => this.DragMove();
-
-        // Закрытые программы
         private void Button_Close_Click(object sender, RoutedEventArgs e) 
         {
             Dialog dialog = new Dialog();
             dialog.ShowDialog();
         }
-
-        // Сворачивание окна
         private void Button_MInimize_Click(object sender, RoutedEventArgs e) => this.WindowState = WindowState.Minimized;
+        private void Button_Info_Click(object sender, RoutedEventArgs e)
+        {
+            AboutApp about = new AboutApp();
+            about.ShowDialog();
+        }
+        #endregion
 
         private void Button_Start_Click(object sender, RoutedEventArgs e)
         {
             string Input = TextBox_Input.Text;
 
+            #region Base64
             try
             {
                 if (Base64.IsEnabled && Base64_Code.IsChecked == true)
@@ -67,17 +50,19 @@ namespace Cipher_Шифер_
             {
                 string 
                     error_name = "Base64",
-                    error_info = "Произошла предвиденная ошибка при дешифровании текста. \nМы понимаем всю вашу боль и предлагаем вам смириться с этим. \n\"Ошибки делают нас сильнее\"";
+                    error_info = "Произошла предвиденная ошибка при дешифровки текста. \nМы понимаем всю вашу боль и предлагаем вам смириться с этим. \n\"Ошибки делают нас сильнее\"";
 
                 Error error = new Error(error_name, error_info);
                 error.ShowDialog();
             };
+            #endregion
+
         }
 
         /*  Взаимодействие с кнопками 
             При нажатии на кнопку открывается соответсвующее окно параметров для метода шифрования.
         */
-
+        #region Chiper Methods
         private void Button_Click(object sender, RoutedEventArgs e) // BASE64
         {
             Base64.Visibility = Visibility.Visible;
@@ -85,7 +70,6 @@ namespace Cipher_Шифер_
 
 
         }
-
         private void Button_Click_1(object sender, RoutedEventArgs e) // ROT (Caesar)
         {
 
@@ -93,6 +77,6 @@ namespace Cipher_Шифер_
             Base64.Visibility = Visibility.Hidden;
             Base64.IsEnabled = false;
         }
-
+        #endregion
     }
 }

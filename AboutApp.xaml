@@ -1,0 +1,31 @@
+﻿<Window x:Class="Cipher_Шифер_.AboutApp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cipher_Шифер_"
+        mc:Ignorable="d"
+        Title="AboutApp" Height="250" Width="350" ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Foreground="{x:Null}">
+    <Window.Background>
+        <SolidColorBrush Color="#FFF4FF00" Opacity="0.9"/>
+    </Window.Background>
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Справка" VerticalAlignment="Top" Foreground="Black" FontSize="15" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="22,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="132" Width="310" TextAlignment="Justify">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="Black" Opacity="0.9"/>
+            </TextBlock.Foreground><Run FontWeight="Bold" Text="О приложении"/><Run FontWeight="Bold" Text=":"/><Run FontWeight="Bold" Text=" "/><Run Text="программна реализация многих методов шифрования с целью их дальнейшего использования для кодирования/декодирования информации."/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Версия приложения"/><Run FontWeight="Bold" Text=":"/><Run FontWeight="Bold" Text=" "/><Run Text="супер пре альфа "/><Run Text="v. 0.1"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Для связи"/><Run FontWeight="Bold" Text=": "/><Run Text="yarosh.nv@yandex.ru"/><LineBreak/><Run/><LineBreak/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="22,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" Width="310" TextAlignment="Justify">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="Black" Opacity="0.9"/>
+            </TextBlock.Foreground><Run FontWeight="Bold" Text="GitHub: "/>
+            <Hyperlink Click="hyperlink_Click">https://github.com/THRUWOL/Chiper  </Hyperlink>
+        </TextBlock>
+        <Button x:Name="Button_CloseInfo" Content="OK" Margin="265,220,10.4,0" VerticalAlignment="Top" BorderBrush="#FFF4FF00" Click="Button_CloseInfo_Click">
+            <Button.Background>
+                <SolidColorBrush Color="White" Opacity="0.9"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>
