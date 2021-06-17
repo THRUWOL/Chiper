@@ -36,7 +36,11 @@ namespace Cipher_Шифер_
         private void Window_MouseLeftButtonDown(object sender, RoutedEventArgs e) => this.DragMove();
 
         // Закрытые программы
-        private void Button_Close_Click(object sender, RoutedEventArgs e) => this.Close();
+        private void Button_Close_Click(object sender, RoutedEventArgs e) 
+        {
+            Dialog dialog = new Dialog();
+            dialog.ShowDialog();
+        }
 
         // Сворачивание окна
         private void Button_MInimize_Click(object sender, RoutedEventArgs e) => this.WindowState = WindowState.Minimized;
@@ -44,6 +48,7 @@ namespace Cipher_Шифер_
         private void Button_Start_Click(object sender, RoutedEventArgs e)
         {
             string Input = TextBox_Input.Text;
+
             try
             {
                 if (Base64.IsEnabled && Base64_Code.IsChecked == true)
@@ -58,13 +63,19 @@ namespace Cipher_Шифер_
                     TextBox_Output.Text = System.Text.Encoding.UTF8.GetString(Input_byte);
                 }
             }
-            catch (Exception) { /*TODO: добавть сюда какое-нибудь прикольное окно, которое вжух и "ты ошибку получил, дурачина"*/ };
+            catch (Exception) 
+            {
+                string 
+                    error_name = "Base64",
+                    error_info = "Произошла предвиденная ошибка при дешифровании текста. \nМы понимаем всю вашу боль и предлагаем вам смириться с этим. \n\"Ошибки делают нас сильнее\"";
+
+                Error error = new Error(error_name, error_info);
+                error.ShowDialog();
+            };
         }
 
         /*  Взаимодействие с кнопками 
             При нажатии на кнопку открывается соответсвующее окно параметров для метода шифрования.
-            
-            Используется паттерн проектирования NVP (это не опечатка)
         */
 
         private void Button_Click(object sender, RoutedEventArgs e) // BASE64
