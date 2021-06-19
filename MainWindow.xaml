@@ -257,10 +257,27 @@
         </Grid>
         <Grid x:Name="Settings" HorizontalAlignment="Left" Height="139" Margin="0,261,0,-380" VerticalAlignment="Top" Width="800" Background="#FFF0F1F2">
             <Grid x:Name="Base64" Margin="22,21,10,15">
-                <RadioButton x:Name="Base64_Code" Content="Шифрование" HorizontalAlignment="Left" Margin="21,33,0,0" VerticalAlignment="Top" Foreground="#FF394C5F" FontWeight="Bold"/>
-                <RadioButton x:Name="Base64_Decode" Content="Дешифрование" HorizontalAlignment="Left" Margin="21,67,0,0" VerticalAlignment="Top" Foreground="#FF394C5F" FontWeight="Bold"/>
+                <Grid Margin="21,33,635,21.2">
+                    <RadioButton x:Name="Base64_Code" Content="Шифрование" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF394C5F" FontWeight="Bold"/>
+                    <RadioButton x:Name="Base64_Decode" Content="Дешифрование" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" Foreground="#FF394C5F" FontWeight="Bold"/>
+                </Grid>
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Настройки" VerticalAlignment="Top" Foreground="#FF394C5F" FontWeight="Bold"/>
                 <Button Content="О методе" HorizontalAlignment="Left" Margin="687,84,0,0" VerticalAlignment="Top" Width="81" Background="#FF717ECD" BorderBrush="{x:Null}" Foreground="White" Height="19"/>
+            </Grid>
+            <Grid x:Name="ROT" Margin="22,21,10,14.8">
+                <Grid Margin="21,33,635,21.2">
+                    <RadioButton x:Name="ROT_Code" Content="Шифрование" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF394C5F" FontWeight="Bold"/>
+                    <RadioButton x:Name="ROT_Decode" Content="Дешифрование" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" Foreground="#FF394C5F" FontWeight="Bold"/>
+                </Grid>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Настройки" VerticalAlignment="Top" Foreground="#FF394C5F" FontWeight="Bold"/>
+                <Button Content="О методе" HorizontalAlignment="Left" Margin="687,84,0,0" VerticalAlignment="Top" Width="81" Background="#FF717ECD" BorderBrush="{x:Null}" Foreground="White" Height="19"/>
+                <TextBlock HorizontalAlignment="Left" Margin="219,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF394C5F"><Run Text="Сдвиг"/><Run Text=" (ключ):"/></TextBlock>
+                <TextBox x:Name="TextBox_Key" HorizontalAlignment="Left" Height="16" Margin="306,32,0,0" TextWrapping="Wrap" Text="13" VerticalAlignment="Top" Width="31" FontWeight="Bold" Background="{x:Null}" BorderBrush="Black" MaxLength="2" TextAlignment="Center"/>
+                <TextBlock HorizontalAlignment="Left" Margin="219,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF394C5F" Text="Язык:"/>
+                <ComboBox x:Name="ComboBox_Language" HorizontalAlignment="Left" Margin="262,63,0,0" VerticalAlignment="Top" Width="75" Height="22" Background="{x:Null}" BorderBrush="Black">
+                    <ComboBoxItem x:Name="Item_Russian" Content="Русский" HorizontalAlignment="Left" Width="118.4"/>
+                    <ComboBoxItem x:Name="Item_English" Content="English" HorizontalAlignment="Left" Width="118.4"/>
+                </ComboBox>
             </Grid>
         </Grid>
         <Grid x:Name="Input_Output" HorizontalAlignment="Left" Height="241" Margin="0,20,0,-241" VerticalAlignment="Top" Width="800" Background="#FFF0F1F2">
