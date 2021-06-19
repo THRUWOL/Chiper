@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="White">
     <Window.Resources>
+        <StreamGeometry x:Key="Geometry">M12,24 L36,0 L36,48 Z</StreamGeometry>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -16,6 +17,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <RotateTransform x:Key="Rotate090" CenterX="24" CenterY="24" Angle="090"/>
+        <RotateTransform x:Key="Rotate180" CenterX="24" CenterY="24" Angle="180"/>
+        <RotateTransform x:Key="Rotate270" CenterX="24" CenterY="24" Angle="270"/>
+        
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
@@ -25,6 +31,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        
         <Style x:Key="RoundedButtonRed" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
@@ -133,10 +140,41 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="ButtonTriangle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Path Name="border" Stretch="Uniform" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" Data="{StaticResource Geometry}" />
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="Stroke" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Fill" TargetName="border" Value="#FF69F098"/>
+                                <Setter Property="Stroke" TargetName="border" Value="#FF69F098"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Fill" TargetName="border" Value="#FF06D44F"/>
+                                <Setter Property="Stroke" TargetName="border" Value="#FF06D44F"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Fill" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="Stroke" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
     </Window.Resources>
 
 
     <Grid x:Name="Main" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="800">
+
         <Grid x:Name="Upper" Background="#FF344A5F">
             <Button x:Name="Button_Close" 
                     HorizontalAlignment="Left" 
@@ -191,7 +229,13 @@
         <Grid x:Name="Input_Output" HorizontalAlignment="Left" Height="241" Margin="0,20,0,-241" VerticalAlignment="Top" Width="800" Background="#FFF0F1F2">
             <TextBox x:Name="TextBox_Input" HorizontalAlignment="Left" Height="182" Margin="21,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" BorderBrush="#FF4AB471" Background="#FFE1FAEA"/>
             <TextBox x:Name="TextBox_Output" HorizontalAlignment="Left" Height="182" Margin="442,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="338" BorderBrush="#FFD96383" Background="#FFFDDBE4"/>
-            <Button x:Name="Button_Start" Content="▶" HorizontalAlignment="Left" Margin="365,109,0,0" VerticalAlignment="Top" Width="72" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Foreground="#FF50B44A" Click="Button_Start_Click"/>
+            <Button x:Name="Button_Start" 
+                    Content="▶" 
+                    HorizontalAlignment="Left" 
+                    Margin="370,110,0,0" VerticalAlignment="Top" Width="28" 
+                    Background="#FF51D47F" BorderBrush="{x:Null}" FontSize="0.01" 
+                    Foreground="{x:Null}" Click="Button_Start_Click" 
+                    Style="{DynamicResource ButtonTriangle}" RenderTransform="{StaticResource ResourceKey=Rotate180}" Height="37"/>
         </Grid>
     </Grid>
 </Window>
