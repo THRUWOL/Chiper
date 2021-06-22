@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 
+// Данная программа будет переделана иначе в будущем, сейчас проект заморожен
+
 namespace Cipher_Шифер_
 {
     /// <summary>
@@ -91,6 +93,7 @@ namespace Cipher_Шифер_
                 }
             }
             #endregion ROT
+
 
         }
 
