@@ -208,7 +208,4 @@
         </Style>
 
     </Window.Resources>
-
-
-    <Grid x:Name="Main" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="800"/>
 </Window>
