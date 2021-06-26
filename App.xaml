@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:Cipher_Шифер_"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resource/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Resource/TextBoxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
