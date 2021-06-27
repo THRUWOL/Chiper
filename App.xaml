@@ -2,13 +2,23 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Cipher_Шифер_"
+             xmlns:view="clr-namespace:Cipher_Шифер_.MVVM.View"
+             xmlns:viewModel="clr-namespace:Cipher_Шифер_.MVVM.ViewModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resource/MenuButtonTheme.xaml"/>
-                <ResourceDictionary Source="Resource/TextBoxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:Base64ViewModel}">
+                <view:Base64View/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ROTViewModel}">
+                <view:ROTView/>
+            </DataTemplate>
 
         </ResourceDictionary>
     </Application.Resources>

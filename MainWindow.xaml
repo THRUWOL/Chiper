@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cipher_Шифер_"
+        xmlns:view="clr-namespace:Cipher_Шифер_.MVVM.View"
+        xmlns:viewModel="clr-namespace:Cipher_Шифер_.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="White">
 
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
 
     <Border Background="#0C0744">
         <Grid>
@@ -77,20 +82,6 @@
                        FontSize="12"
                        Margin="5.2,1.8,0,1.4" 
                        Height="16" Width="35"/>
-            <TextBox x:Name="IputBox"
-                     Grid.Row="2"
-                     Grid.Column="4"
-                     Background="Transparent"
-                     BorderThickness="0"
-                     Foreground="White"
-                     TextWrapping="Wrap"/>
-            <TextBox x:Name="OutputBox"
-                     Grid.Row="4"
-                     Grid.Column="4"
-                     Background="Transparent"
-                     BorderThickness="0"
-                     Foreground="White"
-                     TextWrapping="Wrap"/>
             <StackPanel Grid.Row="2" Margin="0,0.6,0.2,-0.4" Grid.RowSpan="3">
                 <TextBox Height="25"
                          BorderThickness="0"
@@ -168,18 +159,8 @@
             <ContentControl x:Name="ContentMethod"
                             Grid.Row="2"
                             Grid.Column="2"
-                            Margin="4.8,4.6,4.8,49.6"
-                            Content="{Binding CurrentView}" Grid.RowSpan="3"/>
-            <Button x:Name="StartButton"
-                    Grid.Column="2" 
-                    Grid.Row="4" 
-                    Margin="39.8,153.6,39.8,9.6">
-                <TextBlock Text="Старт"
-                           FontSize="20"
-                           TextAlignment="Center"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-            </Button>
+                            Margin="5"
+                            Content="{Binding CurrentView}" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
         </Grid>
 
     </Border>
